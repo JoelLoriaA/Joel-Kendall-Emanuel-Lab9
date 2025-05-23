@@ -1,0 +1,48 @@
+/* Aplica la fuente con estilo bold italic a todos los elementos de la alerta */
+.custom-alert, .error-alert,
+.custom-alert *, .error-alert * {
+    -fx-font-family: "Cal Sans", sans-serif;
+    -fx-font-weight: bold;  /* Cambiado a bold */
+    -fx-font-style: italic; /* Cambiado a italic */
+}
+
+/* Otros estilos como antes */
+.custom-alert, .error-alert {
+    -fx-background-color: #e0e0e0;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.1, 0, 4);
+}
+
+.custom-alert > *.header-panel,
+.error-alert > *.header-panel {
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 15px;
+    -fx-background-radius: 10px 10px 0 0;
+}
+
+.custom-alert > *.header-panel > *.header-text,
+.error-alert > *.header-panel > *.header-text {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold; /* Se asegura de que el texto en el encabezado sea bold */
+    -fx-font-style: italic; /* Se asegura de que el texto en el encabezado sea italic */
+    -fx-text-fill: white;
+}
+
+.custom-alert > *.content.label,
+.error-alert > *.content.label {
+    -fx-font-size: 15px;
+    -fx-padding: 20px;
+    -fx-text-fill: #333;
+    -fx-font-weight: bold; /* Se asegura de que el texto del contenido sea bold */
+    -fx-font-style: italic; /* Se asegura de que el texto del contenido sea italic */
+}
+
+.custom-alert .button-bar .button,
+.error-alert .button-bar .button {
+    -fx-font-family: "Cal Sans", sans-serif;
+    -fx-font-weight: bold; /* Se asegura de que el texto en los botones sea bold */
+    -fx-font-style: italic; /* Se asegura de que el texto en los botones sea italic */
+}
+
+/* Resto de los estilos sigue igual */

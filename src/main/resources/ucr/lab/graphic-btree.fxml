@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphicBtreeController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphicBtreeController">
 
     <top>
         <Pane prefHeight="64.0" prefWidth="600.0" style="-fx-background-color: #E95420;" BorderPane.alignment="CENTER">
@@ -45,7 +45,7 @@
 
     <bottom>
         <!-- ScrollPane que contiene el Pane donde se dibuja el árbol -->
-        <ScrollPane fx:id="treeScrollPane" prefHeight="551.0" prefWidth="700.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+        <ScrollPane prefHeight="551.0" prefWidth="700.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
     <content>
         <Pane fx:id="treePane" style="-fx-background-color: #c6ecd9;">
             <!-- El prefHeight y prefWidth se establecerán dinámicamente en el código -->

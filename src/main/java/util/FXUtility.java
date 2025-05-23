@@ -1,8 +1,9 @@
 package util;
 
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.*;
 import ucr.lab.HelloApplication;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class FXUtility {
         myalert.setTitle(title);
         myalert.setHeaderText(headerText);
         DialogPane dialogPane = myalert.getDialogPane();
-        String css = HelloApplication.class.getResource("dialog.css").toExternalForm();
+        String css = HelloApplication.class.getResource("alert-style.css").toExternalForm();
         dialogPane.getStylesheets().add(css);
         dialogPane.getStyleClass().add("myDialog");
         return myalert;
@@ -36,8 +37,6 @@ public class FXUtility {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle(title);
         dialog.setHeaderText(headerText);
-        //String css = HelloApplication.class.getResource("moderna.css").toExternalForm();
-        //dialog.getEditor().getStylesheets().add(css);
         return dialog;
     }
 
@@ -60,5 +59,50 @@ public class FXUtility {
         if((result.isPresent())&&(result.get()== buttonTypeYes))
             return "YES";
         else return "NO";
+    }
+
+    // Versión alternativa usando la clase FXUtility modificada
+    public static Alert customTourInfoAlert(String title, String headerText) {
+        Alert customAlert = new Alert(Alert.AlertType.INFORMATION);
+        customAlert.setTitle(title);
+        customAlert.setHeaderText(null); // Quitamos el headerText por defecto
+
+        DialogPane dialogPane = customAlert.getDialogPane();
+
+        // Crear contenido personalizado
+        VBox customContent = new VBox(10);
+        customContent.setStyle("-fx-padding: 0;");
+
+        // Header personalizado
+        HBox header = new HBox();
+        header.setStyle("-fx-background-color: #00BCD4; -fx-padding: 10;");
+        header.setAlignment(Pos.CENTER_LEFT);
+
+        Label titleLabel = new Label(headerText);
+        titleLabel.setStyle("-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;");
+
+        Label infoIcon = new Label("ⓘ");
+        infoIcon.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;");
+
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        header.getChildren().addAll(titleLabel, spacer, infoIcon);
+
+        customContent.getChildren().add(header);
+
+        // Establecer el contenido personalizado
+        dialogPane.setContent(customContent);
+
+        // Aplicar estilos CSS si existen
+        try {
+            String css = HelloApplication.class.getResource("alert-style.css").toExternalForm();
+            dialogPane.getStylesheets().add(css);
+        } catch (Exception e) {
+            // Si no se encuentra el CSS, usar estilos inline
+            dialogPane.setStyle("-fx-background-color: #E0F7FA;");
+        }
+
+        return customAlert;
     }
 }
