@@ -21,6 +21,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import ucr.lab.HelloApplication;
 
+import javafx.scene.text.TextAlignment;
+
 public class GraphicBtreeController {
     @FXML
     private Pane treePane;
@@ -91,7 +93,7 @@ public class GraphicBtreeController {
                 }
             }
 
-            // Segunda pasada: dibujar los nodos
+            // Segunda pasada: dibujar los nodos y sus rutas (solo para nodos izquierdos)
             for (String nodeStr : nodes) {
                 if (nodeStr.isEmpty()) continue;
 
@@ -107,11 +109,21 @@ public class GraphicBtreeController {
                 circle.setStroke(NODE_STROKE_COLOR);
                 circle.setStrokeWidth(2.0);
 
-                // Dibujar texto
-                Text text = new Text(pos[0] - 10, pos[1] + 5, value);
-                text.setStyle(TEXT_STYLE);
+                // Dibujar valor del nodo
+                Text valueText = new Text(pos[0] - 10, pos[1] + 5, value);
+                valueText.setStyle(TEXT_STYLE);
 
-                treeGroup.getChildren().addAll(circle, text);
+                // Agregar el círculo y el valor del nodo
+                treeGroup.getChildren().addAll(circle, valueText);
+
+                // Dibujar el path solo si es un nodo izquierdo o la raíz
+                if (pathStr.equals("root") || pathStr.endsWith("/left")) {
+                    Text pathText = new Text(pos[0] - 30, pos[1] + NODE_RADIUS + 15, pathStr);
+                    pathText.setStyle("-fx-font-size: 10px; -fx-fill: #666666;");
+                    pathText.setWrappingWidth(60);
+                    pathText.setTextAlignment(TextAlignment.CENTER);
+                    treeGroup.getChildren().add(pathText);
+                }
             }
 
             // Ajustar el tamaño del panel
