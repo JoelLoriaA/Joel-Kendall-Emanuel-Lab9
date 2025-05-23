@@ -17,5 +17,6 @@ class BTreeTest {
         } catch (TreeException e) {
             throw new RuntimeException(e);
         }
+
     }
 }

@@ -32,7 +32,7 @@ public class BTree implements  Tree {
 
     @Override
     public void add(Object element) {
-       //this.root = add(root, element);
+        //this.root = add(root, element);
         this.root = add(root, element, "root");
     }
 
@@ -62,7 +62,7 @@ public class BTree implements  Tree {
 
     @Override
     public void remove(Object element) throws TreeException {
-
+        
     }
 
     @Override
@@ -160,6 +160,7 @@ public class BTree implements  Tree {
             throw new TreeException("Binary Tree is empty");
         return printLeaves(root);
     }
+
     private String printLeaves(BTreeNode node){
         if(node==null) return "";
         else{
@@ -174,10 +175,19 @@ public class BTree implements  Tree {
         return printNodes1Child(root);
     }
     private String printNodes1Child(BTreeNode node) {
+        String result = "";
         if (node == null)
-            return "";
+            return result;
         else {
-
+            if(node.left != null && node.right == null)
+                result += node.data+" ";
+            else if(node.left == null && node.right != null)
+                result += node.data+" ";
+            else if(node.left != null && node.right != null)
+                result += node.data+" ("+node.path+")"+" ";
+            else
+            result += printNodes1Child(node.left);
+            result += printNodes1Child(node.right);
         }
         return "";
     }
@@ -195,4 +205,54 @@ public class BTree implements  Tree {
         }
         return ""; //corregir para el retorno correcto
     }
+
+    public String printNodesWithChildren(){
+        if(isEmpty())
+            throw new RuntimeException("Binary Tree is empty");
+        return printNodesWithChildren(root);
+    }
+    private String printNodesWithChildren(BTreeNode node){
+        if(node==null) return "";
+        else{
+            String result="";
+            if(node.left!=null) result+=printNodesWithChildren(node.left);
+            result+=node.data+" ";
+            if(node.right!=null) result+=printNodesWithChildren(node.right);
+            return result;
+        }
+    }
+
+    public String printSubTree(){
+        if(isEmpty())
+            throw new RuntimeException("Binary Tree is empty");
+        return printSubTree(root);
+    }
+    private String printSubTree (BTreeNode node){
+        if(node==null) return "";
+        else{
+            String result="";
+            result+=node.data+" ";
+            result+=printSubTree(node.left);
+            result+=printSubTree(node.right);
+            return result;
+        }
+    }
+
+    public int totalLeaves(){
+        if(isEmpty())
+            throw new RuntimeException("Binary Tree is empty");
+        return totalLeaves(root);
+
+    }
+    private int totalLeaves(BTreeNode node){
+        if(node==null) return 0;
+        else{
+            int result=0;
+            if(node.left==null && node.right==null) result++;
+            result+=totalLeaves(node.left);
+            result+=totalLeaves(node.right);
+            return result;
+        }
+    }
+
 }
