@@ -46,6 +46,7 @@ public class HelloController {
 
     @FXML
     public void btreeTourOnAction(ActionEvent actionEvent) {
+        load("TreeView.fxml");
     }
 
     @FXML

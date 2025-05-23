@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainPane" prefHeight="634.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TreeController">
+   <top>
+      <Pane prefHeight="163.0" prefWidth="742.0" style="-fx-background-color: #7AC3A1;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="randomizeBtn" layoutX="31.0" layoutY="72.0" prefHeight="52.0" prefWidth="140.0" text="Randomize" />
+            <Button fx:id="preOrderBtn" disable="true" layoutX="173.0" layoutY="72.0" prefHeight="52.0" prefWidth="140.0" text="Pre Order" />
+            <Button fx:id="inOrderBtn" disable="true" layoutX="315.0" layoutY="72.0" prefHeight="52.0" prefWidth="140.0" text="In Order" />
+            <Button fx:id="postOrderBtn" disable="true" layoutX="457.0" layoutY="72.0" prefHeight="52.0" prefWidth="140.0" text="Post Order" />
+            <Button fx:id="zoomInBtn" layoutX="610.0" layoutY="85.0" prefHeight="26.0" prefWidth="26.0" text="+" />
+            <Button fx:id="zoomOutBtn" layoutX="647.0" layoutY="85.0" prefHeight="26.0" prefWidth="26.0" text="-" />
+            <Pane prefHeight="66.0" prefWidth="742.0" style="-fx-background-color: #E95420;">
+               <children>
+                  <Label layoutX="190.0" layoutY="19.0" text="Graphic Binary Tour - Transversal Tour" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label fx:id="labelType" layoutX="277.0" layoutY="136.0" text="-" textFill="#b90c0c" />
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <ScrollPane fx:id="scrollPane" fitToHeight="false" fitToWidth="false" pannable="true" style="-fx-background-color: #C6ECD9; -fx-background: #C6ECD9;" BorderPane.alignment="CENTER">
+         <content>
+            <Pane fx:id="treePane" prefHeight="1000.0" prefWidth="2000.0" style="-fx-background-color: #C6ECD9;" />
+         </content>
+      </ScrollPane>
+   </center>
+   <bottom>
+      <Pane prefHeight="0.0" prefWidth="742.0" style="-fx-background-color: #C6ECD9;" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
