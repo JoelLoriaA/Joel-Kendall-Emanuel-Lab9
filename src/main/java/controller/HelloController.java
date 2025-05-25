@@ -30,7 +30,7 @@ public class HelloController {
     }
 
     @FXML
-    public void btreeOperationOnAction(ActionEvent actionEvent) {
+    public void btreeOperationOnAction(ActionEvent actionEvent) {load("graphic-btree-operations.fxml");
     }
 
     @FXML

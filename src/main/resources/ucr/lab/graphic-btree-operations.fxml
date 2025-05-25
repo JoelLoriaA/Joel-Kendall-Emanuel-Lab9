@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="684.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphicBtreeOperationsController">
+
+    <top>
+        <Pane prefHeight="59.0" prefWidth="685.0" style="-fx-background-color: #E95420;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="158.0" layoutY="14.0" text="Graphic Binary Tree - Operations">
+                    <font>
+                        <Font name="System Bold" size="25.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </top>
+
+    <center>
+        <Pane prefHeight="75.0" prefWidth="695.0" style="-fx-background-color: #7AC3A1;" BorderPane.alignment="CENTER">
+            <children>
+                <Button layoutY="12.0" mnemonicParsing="false" onAction="#randomizeOnAction" prefHeight="32.0" prefWidth="112.0" text="Randomize">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Button>
+                <Button layoutX="118.0" layoutY="12.0" mnemonicParsing="false" onAction="#containsOnAction" prefHeight="32.0" prefWidth="99.0" text="Contains">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Button>
+                <Button layoutX="223.0" layoutY="12.0" mnemonicParsing="false" onAction="#addOnAction" prefHeight="32.0" prefWidth="79.0" text="Add ">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Button>
+            <Button layoutX="309.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeOnAction" prefHeight="32.0" prefWidth="106.0" text="Remove">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="423.0" layoutY="12.0" mnemonicParsing="false" onAction="#NodeHeigthOnAction" prefHeight="32.0" prefWidth="148.0" text="Node Heigth">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="579.0" layoutY="12.0" mnemonicParsing="false" onAction="#TreeHeigthOnAction" prefHeight="32.0" prefWidth="131.0" text="Tree Heigth">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            </children>
+        </Pane>
+    </center>
+
+    <bottom>
+        <!-- ScrollPane que contiene el Pane donde se dibuja el árbol -->
+        <ScrollPane prefHeight="551.0" prefWidth="719.0" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+            <content>
+                <Pane fx:id="treePane" style="-fx-background-color: #c6ecd9;">
+                    <!-- El prefHeight y prefWidth se establecerán dinámicamente en el código -->
+                </Pane>
+            </content>
+        </ScrollPane>
+    </bottom>
+</BorderPane>
